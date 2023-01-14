@@ -8,7 +8,7 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 
 ## Installation
 ````
-go get github.com/AfaanBilal/hyperdb-go
+go get -u github.com/AfaanBilal/hyperdb-go
 ````
 
 ## Example usage
