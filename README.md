@@ -21,56 +21,56 @@ import (
 hyper := hyperdb.Create("http://localhost:8765", "", "")
 
 // Ping the server
-rb := hyper.ping()
+rb := hyper.Ping()
 fmt.Println(rb) // true
 
 // Get the version number
-rs := hyper.version()
+rs := hyper.Version()
 fmt.Println(rs) // "[HyperDB v0.1.0 (https://afaan.dev)]"
 
 // Set a value
-rs = hyper.set("test", "value")
+rs = hyper.Set("test", "value")
 fmt.Println(rs) // "value"
 
 // Check if a key is present
-rb = hyper.has("test")
+rb = hyper.Has("test")
 fmt.Println(rb) // true
 
 // Get a value
-rs = hyper.get("test")
+rs = hyper.Get("test")
 fmt.Println(rs) // "value"
 
 // Get all stored data
-rs = hyper.all()
+rs = hyper.All()
 fmt.Println(rs) // {test: "value"}
 
 // Remove a key
-rb = hyper.delete("test")
+rb = hyper.Delete("test")
 fmt.Println(rb) // true
 
 // Delete all stored data
-rb = hyper.clear()
+rb = hyper.Clear()
 fmt.Println(rb) // true
 
 // Check if the store is empty
-rb = hyper.empty()
+rb = hyper.Empty()
 fmt.Println(rb) // true
 
 // Persist the store to disk
-rb = hyper.save()
+rb = hyper.Save()
 fmt.Println(rb) // true
 
 // Reload the store from disk
-rb = hyper.reload()
+rb = hyper.Reload()
 fmt.Println(rb) // true
 
 // Delete all store data from memory and disk
-rb = hyper.reset()
+rb = hyper.Reset()
 fmt.Println(rb) // true
 ````
 
 ## Test
-`$ go test .`
+`$ go test . -v`
 
 ````
 === RUN   TestHyperDB

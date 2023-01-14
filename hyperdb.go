@@ -105,50 +105,50 @@ func (h *HyperDB) auth() {
 	h.token = response
 }
 
-func (h *HyperDB) ping() bool {
+func (h *HyperDB) Ping() bool {
 	return h.http("ping", "", "") == R_PONG
 }
 
-func (h *HyperDB) version() string {
+func (h *HyperDB) Version() string {
 	return h.http("", "", "")
 }
 
-func (h *HyperDB) has(key string) bool {
+func (h *HyperDB) Has(key string) bool {
 	return h.http(fmt.Sprintf("has/%s", key), "", "") == R_TRUE
 }
 
-func (h *HyperDB) get(key string) string {
+func (h *HyperDB) Get(key string) string {
 	return h.http(fmt.Sprintf("data/%s", key), "", "")
 }
 
-func (h *HyperDB) set(key string, value string) string {
+func (h *HyperDB) Set(key string, value string) string {
 	return h.http(fmt.Sprintf("data/%s", key), "POST", value)
 }
 
-func (h *HyperDB) delete(key string) bool {
+func (h *HyperDB) Delete(key string) bool {
 	return h.http(fmt.Sprintf("data/%s", key), "DELETE", "") == R_OK
 }
 
-func (h *HyperDB) all() string {
+func (h *HyperDB) All() string {
 	return h.http("data", "", "")
 }
 
-func (h *HyperDB) clear() bool {
+func (h *HyperDB) Clear() bool {
 	return h.http("data", "DELETE", "") == R_OK
 }
 
-func (h *HyperDB) empty() bool {
+func (h *HyperDB) Empty() bool {
 	return h.http("empty", "", "") == R_TRUE
 }
 
-func (h *HyperDB) save() bool {
+func (h *HyperDB) Save() bool {
 	return h.http("save", "POST", "") == R_OK
 }
 
-func (h *HyperDB) reload() bool {
+func (h *HyperDB) Reload() bool {
 	return h.http("reload", "POST", "") == R_OK
 }
 
-func (h *HyperDB) reset() bool {
+func (h *HyperDB) Reset() bool {
 	return h.http("reset", "DELETE", "") == R_OK
 }
